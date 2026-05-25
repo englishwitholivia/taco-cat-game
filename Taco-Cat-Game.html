@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Taco Cat's Turbo Skate Quest</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #12002f, #2b0057, #000000);
+      color: white;
+      overflow: hidden;
+    }
+
+    #game {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 60px;
+      color: #ffde59;
+      text-shadow:
+        0 0 10px #ff00ff,
+        0 0 20px #00ffff;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #00ffff;
+      margin-bottom: 30px;
+    }
+    p {
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+    .cat {
+      font-size: 100px;
+      animation: bounce 2s infinite;
+    }
+
+    .start-button {
+  background: linear-gradient(45deg, #ffe600, #ff9900);
+  border: 4px solid white;
+  padding: 22px 45px;
+  border-radius: 18px;
+  font-size: 32px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  box-shadow:
+    0 0 20px #ffde59,
+    0 0 40px #ff00ff;
+  color: black;
+}
+
+    .start-button:hover {
+      transform: scale(1.1);
+      background: #ffae00;
+    }
+
+    .emoji-rain {
+      position: absolute;
+      font-size: 30px;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes fall {
+      from {
+        transform: translateY(-100px);
+      }
+
+      to {
+        transform: translateY(110vh);
+      }
+    }
+.character {
+  width: 280px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px #ff00ff);
+}
+  </style>
+</head>
+
+<body>
+
+<div id="game">
+
+  <img class="character" src="taco-cat.png">
+
+  <h1>TACO CAT'S</h1>
+
+  <h2>TURBO SKATE QUEST</h2>
+
+  <p>SOLE! Taco Cat needs your help! 🚨</p>
+
+  <button class="start-button" onclick="startGame()">
+    ▶ START GAME
+  </button>
+
+</div>
+
+<script>
+
+function startGame() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🤖🌮🐱</div>
+
+    <h1>OH NO!!!</h1>
+
+    <h2>The Evil Robot stole:</h2>
+
+    <p>🛹 The Turbo Skateboard</p>
+    <p>🌮 The Magic Taco</p>
+    <p>🧦 The Legendary Sock of Power</p>
+
+    <button class="start-button" onclick="mission1()">
+      START MISSION 1
+    </button>
+
+  `;
+}
+
+function mission1() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🗑️🛹</div>
+
+    <h1>MISSION 1</h1>
+
+    <h2>The Trash Can of Destiny</h2>
+
+    <p>The skateboard is missing!</p>
+
+    <p>Choose the correct sentence:</p>
+
+    <button class="start-button"
+      onclick="correct1()">
+      The skateboard is in the trash can.
+    </button>
+
+    <br><br>
+
+    <button class="start-button"
+      onclick="wrong1()">
+      The skateboard are in the trash can.
+    </button>
+
+    <br><br>
+
+    <button class="start-button"
+      onclick="wrong1()">
+      The skateboard am in the trash can.
+    </button>
+
+  `;
+}
+
+function correct1() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🎉🛹🌮</div>
+
+    <h1>AWESOME!</h1>
+
+    <h2>Taco Cat found the skateboard!</h2>
+
+    <p style="color:#ffde59;">
+      BUT WAIT... 🚨
+    </p>
+
+    <p>
+      The Evil Robot is blocking the skate park!
+    </p>
+
+    <button class="start-button"
+      onclick="mission2()">
+      GO TO THE SKATE PARK
+    </button>
+
+  `;
+}
+
+function wrong1() {
+
+  alert("NOOOO 😭 Try again!");
+}
+function mission2() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🤖🚧🛹</div>
+
+    <h1>ROBOT SECURITY TEST</h1>
+
+    <h2>ONLY COOL SKATERS CAN ENTER.</h2>
+
+    <p style="color:#ffde59;">
+      Choose the correct sentence:
+    </p>
+
+    <button class="start-button"
+      onclick="wrong2()">
+      Taco Cat like tacos.
+    </button>
+
+    <br><br>
+
+    <button class="start-button"
+      onclick="correct2()">
+      Taco Cat likes tacos.
+    </button>
+
+    <br><br>
+
+    <button class="start-button"
+      onclick="wrong2()">
+      Taco Cat liking tacos.
+    </button>
+
+  `;
+}
+
+function correct2() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">😎✨🤖</div>
+
+    <h1>COOLNESS DETECTED</h1>
+
+    <h2>ACCESS GRANTED</h2>
+
+    <p>
+      The Evil Robot is impressed.
+    </p>
+
+    <p style="color:#ffde59;">
+      "WOW... your English is powerful." 🤖
+    </p>
+
+    <button class="start-button"
+      onclick="mission3()">
+      ENTER THE SKATE PARK
+    </button>
+
+  `;
+}
+
+function wrong2() {
+
+  alert("🤖 WRONG ANSWER. TOO MUCH CRINGE.");
+}
+function mission3() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🦝✨🪩</div>
+
+    <h1>THE RACCOON WIZARD</h1>
+
+    <h2>Welcome to the Disco Skate Cave.</h2>
+
+    <p>
+      The Raccoon Wizard loves:
+    </p>
+
+    <p style="color:#ffde59;">
+      🍕 pizza<br>
+      ✨ shiny objects<br>
+      🪩 disco music
+    </p>
+
+    <p>
+      What does the Raccoon Wizard love?
+    </p>
+
+    <button class="start-button"
+      onclick="wrong3()">
+      Homework and vegetables
+    </button>
+
+    <br><br>
+
+    <button class="start-button"
+      onclick="correct3()">
+      Pizza, shiny objects and disco music
+    </button>
+
+    <br><br>
+
+    <button class="start-button"
+      onclick="wrong3()">
+      Cleaning his room
+    </button>
+
+  `;
+}
+
+function correct3() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🧦✨🌮</div>
+
+    <h1>LEGENDARY SOCK FOUND!</h1>
+
+    <h2>The Raccoon Wizard is impressed.</h2>
+
+    <p style="color:#ffde59;">
+      "Your English power level is OVER 9000." 🦝
+    </p>
+
+    <button class="start-button"
+      onclick="finalMission()">
+      TAKE THE LEGENDARY SOCK
+    </button>
+
+  `;
+}
+
+function wrong3() {
+
+  alert("🦝 WRONG ANSWER. THE WIZARD IS DISAPPOINTED.");
+}
+function finalMission() {
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🌮🛹🐱✨</div>
+
+    <h1>FINAL SKATE CHALLENGE</h1>
+
+    <h2>Taco Cat enters the MEGA SKATE COMPETITION!</h2>
+
+    <p style="color:#ffde59;">
+      Suddenly...
+    </p>
+
+    <p>
+      🌮 THE TACO FALLS ON THE SKATEBOARD 🌮
+    </p>
+
+    <button class="start-button"
+      onclick="finale()">
+      WATCH THE TRICK
+    </button>
+
+  `;
+}
+
+function finale() {
+
+  startEmojiRain();
+
+  document.getElementById("game").innerHTML = `
+
+    <div class="cat">🌮💥🛹🐱</div>
+
+    <h1>THE LEGENDARY TACO SPIN</h1>
+
+    <h2>Taco Cat accidentally performs the coolest trick EVER.</h2>
+
+    <p style="color:#ffde59;">
+      🤖 "THIS IS... IMPOSSIBLE." 🤖
+    </p>
+
+    <p>
+      Taco Cat wins the competition.
+    </p>
+
+    <p>
+      The Evil Robot starts crying dramatically.
+    </p>
+
+    <h2>
+      🏆 SOLE = OFFICIAL TURBO SKATER 🏆
+    </h2>
+
+    <button class="start-button"
+      onclick="restartGame()">
+      PLAY AGAIN
+    </button>
+
+  `;
+}
+
+function restartGame() {
+  location.reload();
+}
+function startEmojiRain() {
+
+  const emojis = ["🌮","🛹","✨","🐱","💥"];
+
+  for (let i = 0; i < 40; i++) {
+
+    let emoji = document.createElement("div");
+
+    emoji.classList.add("emoji-rain");
+
+    emoji.innerText =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    emoji.style.left = Math.random() * 100 + "vw";
+
+    emoji.style.animationDuration =
+      (Math.random() * 6 + 6) + "s";
+
+    emoji.style.fontSize =
+      (Math.random() * 30 + 20) + "px";
+
+    document.body.appendChild(emoji);
+  }
+}
+</script>
+
+</body>
+</html>
